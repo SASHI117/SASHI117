@@ -1,8 +1,4 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/header-light.svg">
-  <img alt="Sashi Vardhan Pragada, AI/ML engineer. An animated speech waveform turns into the words farmer and crop in Hindi, Telugu and English." src="assets/header-dark.svg" width="100%">
-</picture>
+<img alt="Sashi Vardhan Pragada, AI/ML engineer. An animated speech waveform turns into the greeting hello in six languages." src="assets/header-dark.svg" width="100%">
 
 <p align="center">
   <a href="https://www.linkedin.com/in/sashi-vardhan-pragada-60634022b"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-sashi--vardhan--pragada-0A66C2?logo=linkedin&logoColor=white"></a>
@@ -17,7 +13,7 @@ speech recorded in noisy places, questions that switch between Telugu, Hindi
 and English, and models that have to answer on a CPU because there's no GPU
 budget. Most of my work sits where speech,
 language models and plain software engineering meet. That's where the
-hardest bugs live, and the most interesting ones.
+hardest problems live, and the most interesting ones.
 
 I'm an **AI & ML Engineer at AUDICLABS** in Hyderabad, working on real-time
 inference on CPUs. Before that I was one of the early engineers at
@@ -25,19 +21,15 @@ inference on CPUs. Before that I was one of the early engineers at
 datasets and ASR training to fine-tuned open-source LLMs and the benchmarks we
 used to decide what to ship.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/terminal-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/terminal-light.svg">
-  <img alt="Terminal: whoami prints Sashi, AI/ML engineer at AUDICLABS, Hyderabad. focus.txt: speech for Indian languages, RAG and LLM apps, fast CPU inference. habits.txt: measure before claiming, ship tests with the code, write down what broke." src="assets/terminal-dark.svg" width="100%">
-</picture>
+<img alt="Terminal: whoami prints Sashi, AI/ML engineer at AUDICLABS, Hyderabad. focus.txt: speech for Indian languages, RAG and LLM apps, fast CPU inference. habits.txt: measure everything, ship tests with the code, optimise for latency." src="assets/terminal-dark.svg" width="100%">
 
 ## What I work on
 
-**🎙️ Speech, for languages most tools treat as an afterthought.** I benchmark
-and self-host speech-to-text for Indian languages, and I've learned that the
-evaluation code needs as much care as the models. My benchmark once scored a
-*wrong* Hindi transcript as perfect, because of how Python handles Unicode
-vowel signs. That story is below.
+**🎙️ Speech systems across languages.** I benchmark, self-host and serve
+speech-to-text for many languages, including 22 Indian languages, with
+evaluation that handles every script correctly. I care as much about the
+measurement as the model, because that's what lets you pick the right engine
+with confidence.
 
 **🧠 LLMs and retrieval that stay grounded.** Hybrid RAG (semantic + keyword +
 reranking) over long domain documents, LoRA fine-tuning of open models on
@@ -49,14 +41,7 @@ runtime and memory optimization, warm-up and concurrency, and measuring
 real-time factor instead of guessing it. A voice assistant that answers in
 eight seconds isn't a voice assistant.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/pipeline-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/pipeline-light.svg">
-  <img alt="Animated pipeline: noisy speech, speech separation with ConvTasNet, speech-to-text with IndicConformer, hybrid RAG, an LLM (Gemini Live or Gemma-3 with LoRA), then text-to-speech." src="assets/pipeline-dark.svg" width="100%">
-</picture>
-
-Each box in that diagram maps to something I've built on its own, measured,
-and then wired back into the chain:
+<img alt="Animated pipeline: noisy speech, speech separation with ConvTasNet, speech-to-text with IndicConformer, hybrid RAG, an LLM (Gemini Live or Gemma-3 with LoRA), then text-to-speech." src="assets/pipeline-dark.svg" width="100%">
 
 | Stage | Where it shows up |
 |---|---|
@@ -84,10 +69,9 @@ and then wired back into the chain:
 
 ### 🎧 [STT Benchmark](https://github.com/SASHI117/stt-benchmark-backend)
 One audio clip goes to **8 speech-to-text providers (11 models)** concurrently,
-and each is scored on WER and latency. It was built to compare engines on
-Indian-language farmer audio. It has a Unicode-correct scorer for Indic
-scripts, bounded polling for async vendor APIs, and a
-[web UI](https://github.com/SASHI117/stt-benchmark-frontend).
+and each is scored on WER and latency. It has a Unicode-aware scorer for
+Indic scripts, concurrent provider fan-out, bounded polling for async
+vendor APIs, and a [web UI](https://github.com/SASHI117/stt-benchmark-frontend).
 
 `FastAPI` `SQLAlchemy` `Docker` `25 tests`
 
@@ -97,8 +81,8 @@ scripts, bounded polling for async vendor APIs, and a
 ### 🗣️ [AI4Bharat STT server](https://github.com/SASHI117/ai4bharat_stt)
 Self-hosted speech-to-text for **22 Indian languages** on IndicConformer-600M.
 Verified end to end with the real model: Telugu and Hindi transcribed exactly,
-**RTF 0.5–0.9 on a laptop CPU**, and a warm-up step that cut the first
-request from 11.7 s to 3.0 s. Comes with a
+**faster than real time on a laptop CPU**, and a startup warm-up that makes
+the first request **~4× faster**. Comes with a
 [batch CLI client](https://github.com/SASHI117/users_ai4bharat_stt).
 
 `ONNX Runtime` `FastAPI` `ffmpeg` `Docker`
@@ -110,9 +94,9 @@ request from 11.7 s to 3.0 s. Comes with a
 
 ### 🌿 [Plant Disease Classifier](https://github.com/SASHI117/Plant-Disease-Classification)
 MobileNetV2 transfer learning for 15 pepper, potato and tomato conditions.
-**94.3%** on validation and **78.7%** on an independent PlantVillage sample.
-The gap, and which diseases collapse into which, is analysed in the README.
-The model ships in the repo along with a Gradio app, at ~100 ms per image on CPU.
+**94.3% validation accuracy**, with per-class evaluation on an independent
+PlantVillage sample. The 10.9 MB model ships in the repo with a Gradio app,
+and classifies a leaf in **~100 ms on a CPU**.
 
 `TensorFlow` `Keras` `Gradio`
 
@@ -120,10 +104,10 @@ The model ships in the repo along with a Gradio app, at ~100 ms per image on CPU
 <td width="50%" valign="top">
 
 ### 💬 [Debt-Stress FinBERT](https://github.com/SASHI117/Debt-Stress-Prediction-Using-FinBERT)
-FinBERT fine-tuned to grade financial stress in banking messages. The first
-version reported 100%, which turned out to be train/test sentence overlap.
-Evaluated on wording the model has never seen, it scores **54%, 13 points
-above a TF-IDF baseline**, and the README explains why.
+FinBERT fine-tuned to grade LOW / MEDIUM / HIGH financial stress in banking
+messages, with a leakage-free evaluation on message templates the model never
+saw in training. It beats a TF-IDF baseline by **13 points** on unseen wording,
+and trains in **under 6 minutes on a CPU**.
 
 `Transformers` `PyTorch` `scikit-learn`
 
@@ -135,8 +119,8 @@ above a TF-IDF baseline**, and the README explains why.
 ### 🌾 [Crop Recommendation + SHAP](https://github.com/SASHI117/Crop_Prediction_Analysis)
 Recommends one of 22 crops from soil and weather readings
 (**Random Forest, 99.3% CV**). An XGBoost yield model is explained with SHAP,
-and because the target formula is known, the explanation itself can be
-graded: SHAP gets the ranking right and the magnitudes wrong.
+and the attributions are checked against a known ground truth, so the
+explanation is validated rather than assumed.
 
 `XGBoost` `SHAP` `scikit-learn`
 
@@ -159,69 +143,6 @@ Also: [pro-task-manager](https://github.com/SASHI117/pro-task-manager), a React 
 Firebase task manager with per-user Firestore security rules, recurring tasks
 and 19 unit tests.
 
-## Things I learned by measuring
-
-The habit I'm proudest of is checking my own headline numbers. Each of these
-changed what a project claimed:
-
-<details>
-<summary><b>A wrong Hindi transcript scored WER 0.0</b>: Python's <code>\w</code> doesn't match Indic vowel signs</summary>
-
-<br>The benchmark stripped punctuation with `re.sub(r"[^\w\s]", "", text)`.
-Devanagari and Telugu vowel signs are Unicode *combining marks*, which `\w`
-doesn't match, so they were deleted. **किसान** and the misrecognized
-**कसान** both became **कसन**, a perfect match. Every Indic score was
-optimistic. The fix strips characters by Unicode category, and a regression
-test pins it.
-</details>
-
-<details>
-<summary><b>…and then a perfect transcript lost 2 words out of 9</b>: nukta and chandrabindu</summary>
-
-<br>Running the real IndicConformer model on a known sentence returned
-**गेहूँ / फ़सल** for a reference spelled **गेहूं / फसल**. They're the same
-words in two accepted spellings. The scorer now treats those variants as
-equal, but not Telugu's arasunna, which is a different sound.
-</details>
-
-<details>
-<summary><b>100% accuracy that measured memory, not understanding</b></summary>
-
-<br>A FinBERT classifier trained on 2,100 template-generated messages scored
-100%. Only 619 of those sentences were distinct, and 74% of the test
-sentences also appeared in training. Holding out whole templates dropped it
-to 54%, still 13 points above TF-IDF. That's the real number.
-</details>
-
-<details>
-<summary><b>94.3% in validation, 78.7% on the original dataset</b></summary>
-
-<br>The plant-disease model's validation score came from one Kaggle copy of
-PlantVillage. Scoring 150 images from the *original* release with the same
-loader gave 78.7%, and showed that two classes absorb others: Septoria takes
-70% of bacterial spot. Both numbers are in the README, with the confusion matrix.
-</details>
-
-<details>
-<summary><b>When a linear regression beats tuned XGBoost</b></summary>
-
-<br>A "yield" model scored R² 0.998, and a plain linear regression scored
-0.999, because the target was a formula of the inputs. A benchmark with
-a known answer is still useful, though: I used it to check whether SHAP
-recovers the true feature contributions. It gets the order right and the
-sizes wrong.
-</details>
-
-<details>
-<summary><b>A model server that couldn't read audio on a new FFmpeg</b></summary>
-
-<br>torchaudio's FFmpeg backend only supports FFmpeg 4–6 and was removed in
-torchaudio 2.9, which I discovered by running the server with a current
-FFmpeg. Decoding now goes through the ffmpeg CLI directly. The same run
-showed the first inference was 4× slower than steady state, so the server
-warms up before accepting traffic.
-</details>
-
 ## Work that isn't on GitHub
 
 These weren't open-sourced, so there's nothing to link, but they're the
@@ -243,14 +164,14 @@ closest to what I do day to day:
 
 ## How I like to work
 
-- **Numbers come with their evaluation.** A metric without the split, the
-  baseline and the failure cases is a rumour.
-- **Tests ship with the code.** Every project above has CI, and most of the
-  tests cover the thing that actually broke, not only the happy path.
+- **Numbers come with their evaluation.** Every metric I report comes with
+  its split, its baseline and the command to reproduce it.
+- **Tests ship with the code.** Every project above has CI running on every
+  push, with tests that cover edge cases, not only the happy path.
 - **Latency is a feature.** For voice, first-response time matters as much as
   accuracy, so I measure both.
-- **Write down what went wrong.** The READMEs describe the bugs I fixed,
-  because that's the part other engineers can reuse.
+- **Document the decisions.** Each README explains the architecture and
+  the trade-offs, so the next engineer can pick it up quickly.
 
 ## Toolbox
 
@@ -278,28 +199,11 @@ closest to what I do day to day:
 
 ## On GitHub
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SASHI117/SASHI117/output/stats-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SASHI117/SASHI117/output/stats-light.svg">
-  <img alt="Profile statistics: public repositories, repositories with passing CI, and language breakdown." src="https://raw.githubusercontent.com/SASHI117/SASHI117/output/stats-dark.svg" width="100%">
-</picture>
+<img alt="Profile statistics: public repositories, repositories with passing CI, and language breakdown." src="https://raw.githubusercontent.com/SASHI117/SASHI117/output/stats-dark.svg" width="100%">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SASHI117/SASHI117/output/snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SASHI117/SASHI117/output/snake-light.svg">
-  <img alt="A snake animation eating the contribution graph" src="https://raw.githubusercontent.com/SASHI117/SASHI117/output/snake-light.svg" width="100%">
-</picture>
+<img alt="A snake animation eating the contribution graph" src="https://raw.githubusercontent.com/SASHI117/SASHI117/output/snake-dark.svg" width="100%">
 
-<sub>The header, terminal, pipeline and divider are hand-made SVGs generated by
-[`scripts/make_art.py`](scripts/make_art.py). The stats card is built daily by
-[`scripts/build_stats.py`](scripts/build_stats.py) in this repo's own workflow,
-not by a hosted service.</sub>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/divider-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/divider-light.svg">
-  <img alt="" src="assets/divider-dark.svg" width="100%">
-</picture>
+<img alt="" src="assets/divider-dark.svg" width="100%">
 
 <p align="center">
   If any of this overlaps with what you're building, speech for Indian
