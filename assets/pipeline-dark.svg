@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="232" viewBox="0 0 1200 232" role="img"
+  aria-label="Animated voice pipeline: noisy speech, speech separation, speech-to-text, hybrid RAG, LLM, text-to-speech.">
+<style>
+  .link { stroke-dasharray: 5 7; animation: flow 1s linear infinite; }
+  @keyframes flow { to { stroke-dashoffset: -24; } }
+  @media (prefers-reduced-motion: reduce) { .link { animation: none; } }
+</style>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#1a1142"/>
+  </linearGradient>
+  <linearGradient id="acc" x1="0" x2="1">
+    <stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/>
+  </linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.1" fill="#ffffff" opacity=".05"/>
+  </pattern>
+  <clipPath id="frame"><rect width="1200" height="232" rx="18"/></clipPath>
+</defs>
+<g clip-path="url(#frame)">
+  <rect width="1200" height="232" fill="url(#bg)"/>
+  <rect width="1200" height="232" fill="url(#dots)"/>
+</g>
+<text x="40" y="44" style="font:600 13px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; letter-spacing:2px" fill="#94a3b8">THE PIPELINE I KEEP BUILDING, ONE STAGE AT A TIME</text>
+<path class="link" d="M 206.0 116.0 L 225.6 116.0" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 220.6 111.0 L 226.6 116.0 L 220.6 121.0" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path class="link" d="M 397.6 116.0 L 417.2 116.0" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 412.2 111.0 L 418.2 116.0 L 412.2 121.0" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path class="link" d="M 589.2 116.0 L 608.8 116.0" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 603.8 111.0 L 609.8 116.0 L 603.8 121.0" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path class="link" d="M 780.8 116.0 L 800.4 116.0" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 795.4 111.0 L 801.4 116.0 L 795.4 121.0" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path class="link" d="M 972.4 116.0 L 992.0 116.0" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 987.0 111.0 L 993.0 116.0 L 987.0 121.0" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g>
+  <rect x="40.0" y="66" width="162" height="100" rx="14" fill="#111827" stroke="#334155" stroke-width="1.5"/>
+  <rect x="40.0" y="66" width="162" height="100" rx="14" fill="none" stroke="url(#acc)" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;.12;.35" dur="6.0s" begin="0.00s" repeatCount="indefinite"/>
+  </rect>
+  <text x="121.0" y="104" text-anchor="middle" style="font:700 16px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#f8fafc">Noisy speech</text>
+  <text x="121.0" y="129" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">field audio</text>
+  <text x="121.0" y="147" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">many languages</text>
+</g><g>
+  <rect x="231.6" y="66" width="162" height="100" rx="14" fill="#111827" stroke="#334155" stroke-width="1.5"/>
+  <rect x="231.6" y="66" width="162" height="100" rx="14" fill="none" stroke="url(#acc)" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;.12;.35" dur="6.0s" begin="1.00s" repeatCount="indefinite"/>
+  </rect>
+  <text x="312.6" y="104" text-anchor="middle" style="font:700 16px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#f8fafc">Separation</text>
+  <text x="312.6" y="129" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">ConvTasNet</text>
+  <text x="312.6" y="147" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">voice vs. noise</text>
+</g><g>
+  <rect x="423.2" y="66" width="162" height="100" rx="14" fill="#111827" stroke="#334155" stroke-width="1.5"/>
+  <rect x="423.2" y="66" width="162" height="100" rx="14" fill="none" stroke="url(#acc)" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;.12;.35" dur="6.0s" begin="2.00s" repeatCount="indefinite"/>
+  </rect>
+  <text x="504.2" y="104" text-anchor="middle" style="font:700 16px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#f8fafc">Speech-to-text</text>
+  <text x="504.2" y="129" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">IndicConformer</text>
+  <text x="504.2" y="147" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">22 Indian langs</text>
+</g><g>
+  <rect x="614.8" y="66" width="162" height="100" rx="14" fill="#111827" stroke="#334155" stroke-width="1.5"/>
+  <rect x="614.8" y="66" width="162" height="100" rx="14" fill="none" stroke="url(#acc)" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;.12;.35" dur="6.0s" begin="3.00s" repeatCount="indefinite"/>
+  </rect>
+  <text x="695.8" y="104" text-anchor="middle" style="font:700 16px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#f8fafc">Hybrid RAG</text>
+  <text x="695.8" y="129" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">semantic + keyword</text>
+  <text x="695.8" y="147" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">+ reranking</text>
+</g><g>
+  <rect x="806.4" y="66" width="162" height="100" rx="14" fill="#111827" stroke="#334155" stroke-width="1.5"/>
+  <rect x="806.4" y="66" width="162" height="100" rx="14" fill="none" stroke="url(#acc)" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;.12;.35" dur="6.0s" begin="4.00s" repeatCount="indefinite"/>
+  </rect>
+  <text x="887.4" y="104" text-anchor="middle" style="font:700 16px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#f8fafc">LLM</text>
+  <text x="887.4" y="129" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">Gemini Live</text>
+  <text x="887.4" y="147" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">Gemma-3 + LoRA</text>
+</g><g>
+  <rect x="998.0" y="66" width="162" height="100" rx="14" fill="#111827" stroke="#334155" stroke-width="1.5"/>
+  <rect x="998.0" y="66" width="162" height="100" rx="14" fill="none" stroke="url(#acc)" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;.12;.35" dur="6.0s" begin="5.00s" repeatCount="indefinite"/>
+  </rect>
+  <text x="1079.0" y="104" text-anchor="middle" style="font:700 16px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#f8fafc">Text-to-speech</text>
+  <text x="1079.0" y="129" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">spoken reply</text>
+  <text x="1079.0" y="147" text-anchor="middle" style="font:500 12px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" fill="#94a3b8">back to the user</text>
+</g>
+<path d="M 121.0 192 L 1079.0 192" stroke="#334155" stroke-width="2" fill="none" stroke-dasharray="2 6"/>
+<circle r="7" fill="#fbbf24">
+  <animateMotion dur="6.0s" repeatCount="indefinite" path="M 121.0 192 L 1079.0 192"/>
+</circle>
+<circle r="14" fill="#fbbf24" opacity=".25">
+  <animateMotion dur="6.0s" repeatCount="indefinite" path="M 121.0 192 L 1079.0 192"/>
+  <animate attributeName="r" values="9;16;9" dur="1s" repeatCount="indefinite"/>
+</circle>
+</svg>
