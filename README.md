@@ -71,4 +71,4 @@ Earlier internships: **Airports Authority of India** (telecom software infrastru
 network monitoring and fault-log analysis) and **BSNL** (real-time surveillance,
 radar and network-monitoring systems, with a focus on uptime and fault detection).
 
-📫 mesashivardhan4080@gmail.com
+📫 mesashivardhan4080@gmail.com · [LinkedIn](https://www.linkedin.com/in/sashi-vardhan-pragada-60634022b)
