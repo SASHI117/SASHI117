@@ -94,9 +94,9 @@ the first request **~4× faster**. Comes with a
 
 ### 🌿 [Plant Disease Classifier](https://github.com/SASHI117/Plant-Disease-Classification)
 MobileNetV2 transfer learning for 15 pepper, potato and tomato conditions.
-**94.3% validation accuracy**, with per-class evaluation on an independent
-PlantVillage sample. The 10.9 MB model ships in the repo with a Gradio app,
-and classifies a leaf in **~100 ms on a CPU**.
+**94.3% validation accuracy** across 15 classes, with per-class evaluation
+tooling. The 10.9 MB model ships in the repo with a Gradio app, and
+classifies a leaf in **~100 ms on a CPU**.
 
 `TensorFlow` `Keras` `Gradio`
 
