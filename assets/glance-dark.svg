@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="364" viewBox="0 0 1200 364" role="img"
+  aria-label="At a glance. Role: AI/ML Engineer. Focus: speech AI, LLMs and RAG, real-time inference. Builds: voice agents, speech-to-text systems, RAG platforms, fine-tuned LLMs. Stack: Python, PyTorch, Transformers, FastAPI, ONNX Runtime, Docker. Based in Hyderabad, India. Speaks English, Telugu, Hindi and Spanish.">
+<style>
+  .row { opacity: 0; animation: rise .6s ease-out forwards; }
+  @keyframes rise { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
+  .bar { transform-box: fill-box; transform-origin: left; animation: grow 1s ease-out forwards; transform: scaleX(0); }
+  @keyframes grow { to { transform: scaleX(1); } }
+  @media (prefers-reduced-motion: reduce) { .row, .bar { animation: none; opacity: 1; transform: none; } }
+</style>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0a0a0a"/><stop offset="1" stop-color="#141414"/>
+  </linearGradient>
+  <linearGradient id="acc" x1="0" x2="1">
+    <stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/>
+  </linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.1" fill="#ffffff" opacity=".035"/>
+  </pattern>
+  <clipPath id="frame"><rect width="1200" height="364" rx="18"/></clipPath>
+</defs>
+<g clip-path="url(#frame)">
+  <rect width="1200" height="364" fill="url(#bg)"/>
+  <rect width="1200" height="364" fill="url(#dots)"/>
+</g>
+<rect class="bar" x="48" y="28" width="120" height="4" rx="2" fill="url(#acc)"/>
+<text x="48" y="58" style="font:700 15px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; letter-spacing:4px" fill="#8a8a93">AT A GLANCE</text>
+<g class="row" style="animation-delay:0.25s">
+  
+  <text x="56" y="100" style="font:700 13px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; letter-spacing:2.5px" fill="#22d3ee">ROLE</text>
+  <text x="250" y="100" style="font:600 20px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#fafafa">AI / ML Engineer</text>
+</g><g class="row" style="animation-delay:0.43s">
+  <line x1="48" y1="117" x2="1152" y2="117" stroke="#2a2a2a" stroke-width="1"/>
+  <text x="56" y="146" style="font:700 13px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; letter-spacing:2.5px" fill="#22d3ee">FOCUS</text>
+  <text x="250" y="146" style="font:600 20px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#fafafa">Speech AI  ·  LLMs &amp; RAG  ·  Real-time inference</text>
+</g><g class="row" style="animation-delay:0.61s">
+  <line x1="48" y1="163" x2="1152" y2="163" stroke="#2a2a2a" stroke-width="1"/>
+  <text x="56" y="192" style="font:700 13px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; letter-spacing:2.5px" fill="#22d3ee">BUILDS</text>
+  <text x="250" y="192" style="font:600 20px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#fafafa">Voice agents  ·  Speech-to-text systems  ·  RAG platforms  ·  Fine-tuned LLMs</text>
+</g><g class="row" style="animation-delay:0.79s">
+  <line x1="48" y1="209" x2="1152" y2="209" stroke="#2a2a2a" stroke-width="1"/>
+  <text x="56" y="238" style="font:700 13px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; letter-spacing:2.5px" fill="#22d3ee">STACK</text>
+  <text x="250" y="238" style="font:600 20px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#fafafa">Python  ·  PyTorch  ·  Transformers  ·  FastAPI  ·  ONNX Runtime  ·  Docker</text>
+</g><g class="row" style="animation-delay:0.97s">
+  <line x1="48" y1="255" x2="1152" y2="255" stroke="#2a2a2a" stroke-width="1"/>
+  <text x="56" y="284" style="font:700 13px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; letter-spacing:2.5px" fill="#22d3ee">BASED IN</text>
+  <text x="250" y="284" style="font:600 20px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#fafafa">Hyderabad, India</text>
+</g><g class="row" style="animation-delay:1.15s">
+  <line x1="48" y1="301" x2="1152" y2="301" stroke="#2a2a2a" stroke-width="1"/>
+  <text x="56" y="330" style="font:700 13px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; letter-spacing:2.5px" fill="#22d3ee">SPEAKS</text>
+  <text x="250" y="330" style="font:600 20px 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif" fill="#fafafa">English  ·  Telugu  ·  Hindi  ·  Spanish</text>
+</g>
+</svg>

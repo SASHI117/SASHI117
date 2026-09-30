@@ -96,7 +96,7 @@ def header(t):
 {defs(t, w, h)}
 <text x="60" y="92" style="font:700 54px {SANS}" fill="{t['ink']}">Sashi Vardhan Pragada</text>
 <text x="62" y="134" style="font:500 22px {SANS}" fill="{t['sub']}">AI/ML engineer · speech systems · LLMs &amp; RAG · real-time inference on CPUs</text>
-<text x="62" y="168" style="font:500 15px {MONO}" fill="{t['muted']}">Hyderabad, India  ·  AUDICLABS  ·  previously FarmVaidya.ai<tspan class="cursor" fill="{t['a1']}"> ▍</tspan></text>
+<text x="62" y="168" style="font:500 15px {MONO}" fill="{t['muted']}">Hyderabad, India<tspan class="cursor" fill="{t['a1']}"> ▍</tspan></text>
 <text x="60" y="206" style="font:600 12px {MONO}; letter-spacing:2px" fill="{t['muted']}">AUDIO IN</text>
 <text x="752" y="206" style="font:600 12px {MONO}; letter-spacing:2px" fill="{t['muted']}">TEXT OUT</text>
 {''.join(bars)}
@@ -169,48 +169,43 @@ def pipeline(t):
 """
 
 
-# ------------------------------------------------------------- terminal ---
-LINES = [
-    ("$ ", "whoami", "cmd"),
-    ("", "sashi · AI/ML engineer @ AUDICLABS · Hyderabad", "out"),
-    ("$ ", "cat focus.txt", "cmd"),
-    ("", "speech for Indian languages · RAG & LLM apps · fast CPU inference", "out"),
-    ("$ ", "cat habits.txt", "cmd"),
-    ("", "measure everything · ship tests with the code · optimise for latency", "out"),
+# --------------------------------------------------------------- glance ---
+GLANCE = [
+    ("ROLE", "AI / ML Engineer"),
+    ("FOCUS", "Speech AI  ·  LLMs & RAG  ·  Real-time inference"),
+    ("BUILDS", "Voice agents  ·  Speech-to-text systems  ·  RAG platforms  ·  Fine-tuned LLMs"),
+    ("STACK", "Python  ·  PyTorch  ·  Transformers  ·  FastAPI  ·  ONNX Runtime  ·  Docker"),
+    ("BASED IN", "Hyderabad, India"),
+    ("SPEAKS", "English  ·  Telugu  ·  Hindi  ·  Spanish"),
 ]
 
 
-def terminal(t):
-    w, h = 1200, 250
-    rows, clips = [], []
-    tstart, y = 0.4, 78
-    for i, (prompt, text, kind) in enumerate(LINES):
-        full = prompt + text
-        width = 11.2 * len(full) + 20
-        dur = 0.045 * len(text) if kind == "cmd" else 0.35
-        color = t["a1"] if kind == "cmd" else t["sub"]
-        clips.append(f"""<clipPath id="c{i}"><rect x="40" y="{y - 20}" width="0" height="28">
-  <animate attributeName="width" from="0" to="{width:.0f}" begin="{tstart:.2f}s" dur="{dur:.2f}s" fill="freeze"
-           calcMode="{'discrete' if kind == 'out' else 'linear'}"/></rect></clipPath>""")
-        body = (f'<tspan fill="{t["a3"]}">{prompt}</tspan>{text.replace("&", "&amp;")}' if prompt
-                else text.replace("&", "&amp;"))
-        rows.append(f'<text x="44" y="{y}" clip-path="url(#c{i})" style="font:500 18px {MONO}" fill="{color}">{body}</text>')
-        tstart += dur + (0.25 if kind == "cmd" else 0.6)
-        y += 28 if kind == "cmd" else 36
-    cursor_y = y - 18
+def glance(t):
+    w, row_h, top = 1200, 46, 100
+    h = top + row_h * (len(GLANCE) - 1) + 34
+    rows = []
+    for i, (label, value) in enumerate(GLANCE):
+        y = top + i * row_h
+        rule = (f'<line x1="48" y1="{y - 29}" x2="{w - 48}" y2="{y - 29}" stroke="{t["edge"]}" stroke-width="1"/>'
+                if i else "")
+        rows.append(f"""<g class="row" style="animation-delay:{0.25 + i * 0.18:.2f}s">
+  {rule}
+  <text x="56" y="{y}" style="font:700 13px {MONO}; letter-spacing:2.5px" fill="{t['a1']}">{label}</text>
+  <text x="250" y="{y}" style="font:600 20px {SANS}" fill="{t['ink']}">{value.replace('&', '&amp;')}</text>
+</g>""")
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img"
-  aria-label="Terminal: whoami, Sashi, AI/ML engineer at AUDICLABS in Hyderabad. Focus: speech for Indian languages, RAG and LLM apps, fast CPU inference. Habits: measure everything, ship tests with the code, optimise for latency.">
+  aria-label="At a glance. Role: AI/ML Engineer. Focus: speech AI, LLMs and RAG, real-time inference. Builds: voice agents, speech-to-text systems, RAG platforms, fine-tuned LLMs. Stack: Python, PyTorch, Transformers, FastAPI, ONNX Runtime, Docker. Based in Hyderabad, India. Speaks English, Telugu, Hindi and Spanish.">
 <style>
-  .cursor {{ opacity: 0; animation: blink 1s steps(1) {tstart:.2f}s infinite; }}
-  @keyframes blink {{ 0% {{ opacity: 1; }} 50% {{ opacity: 0; }} }}
+  .row {{ opacity: 0; animation: rise .6s ease-out forwards; }}
+  @keyframes rise {{ from {{ opacity: 0; transform: translateX(-16px); }} to {{ opacity: 1; transform: translateX(0); }} }}
+  .bar {{ transform-box: fill-box; transform-origin: left; animation: grow 1s ease-out forwards; transform: scaleX(0); }}
+  @keyframes grow {{ to {{ transform: scaleX(1); }} }}
+  @media (prefers-reduced-motion: reduce) {{ .row, .bar {{ animation: none; opacity: 1; transform: none; }} }}
 </style>
-<defs>{''.join(clips)}</defs>
 {defs(t, w, h)}
-<rect x="0" y="0" width="{w}" height="40" fill="{t['card']}" opacity=".55"/>
-<circle cx="26" cy="20" r="6.5" fill="#ff5f57"/><circle cx="48" cy="20" r="6.5" fill="#febc2e"/><circle cx="70" cy="20" r="6.5" fill="#28c840"/>
-<text x="{w / 2}" y="25" text-anchor="middle" style="font:500 13px {MONO}" fill="{t['muted']}">sashi@hyderabad: ~</text>
+<rect class="bar" x="48" y="28" width="120" height="4" rx="2" fill="url(#acc)"/>
+<text x="48" y="58" style="font:700 15px {MONO}; letter-spacing:4px" fill="{t['muted']}">AT A GLANCE</text>
 {''.join(rows)}
-<rect class="cursor" x="44" y="{cursor_y}" width="11" height="22" fill="{t['a1']}"/>
 </svg>
 """
 
@@ -233,7 +228,7 @@ def footer(t):
 
 def main():
     OUT.mkdir(exist_ok=True)
-    for name, fn in [("header", header), ("pipeline", pipeline), ("terminal", terminal), ("divider", footer)]:
+    for name, fn in [("header", header), ("pipeline", pipeline), ("glance", glance), ("divider", footer)]:
         for theme, t in THEMES.items():
             (OUT / f"{name}-{theme}.svg").write_text(fn(t), encoding="utf-8")
     print("wrote", sorted(p.name for p in OUT.glob("*.svg")))
