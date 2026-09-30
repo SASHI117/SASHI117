@@ -43,10 +43,15 @@ def api(path: str, attempts: int = 4):
 
 
 def latest_default_branch_run(user: str, repo: dict):
-    """Latest workflow run on the default branch, filtered client-side:
-    the API's ?branch= filter was observed to return empty lists."""
-    runs = api(f"/repos/{user}/{repo['name']}/actions/runs?per_page=20").get("workflow_runs", [])
-    return next((r for r in runs if r["head_branch"] == repo["default_branch"]), None)
+    """Latest *finished* workflow run on the default branch.
+
+    Filtered client-side: the API's ?branch= filter was observed to return
+    empty lists. Unfinished runs are skipped, otherwise this very workflow
+    counts itself as a non-passing run while it is still executing.
+    """
+    runs = api(f"/repos/{user}/{repo['name']}/actions/runs?per_page=30").get("workflow_runs", [])
+    return next((r for r in runs
+                 if r["head_branch"] == repo["default_branch"] and r["status"] == "completed"), None)
 
 
 def collect(user: str) -> dict:
@@ -74,7 +79,7 @@ def collect(user: str) -> dict:
 
 
 def card(s: dict, t: dict) -> str:
-    w, h = 1200, 210
+    w, h = 1200, 222
     total = sum(n for _, n in s["langs"]) or 1
     top = s["langs"][:6]
     other = total - sum(n for _, n in top)
@@ -84,15 +89,15 @@ def card(s: dict, t: dict) -> str:
     x, bar = 40.0, []
     for lang, n in segs:
         seg_w = (w - 80) * n / total
-        bar.append(f'<rect x="{x:.1f}" y="138" width="{max(seg_w - 2, 0):.1f}" height="12" rx="3" '
+        bar.append(f'<rect x="{x:.1f}" y="142" width="{max(seg_w - 2, 0):.1f}" height="14" rx="4" '
                    f'fill="{LANG_COLORS.get(lang, "#6e7681")}"/>')
         x += seg_w
     legend, lx = [], 40
     for lang, n in segs:
         label = f"{lang} {100 * n / total:.1f}%"
-        legend.append(f'<circle cx="{lx + 5}" cy="176" r="5" fill="{LANG_COLORS.get(lang, "#6e7681")}"/>'
-                      f'<text x="{lx + 15}" y="181" style="font:500 13px {SANS}" fill="{t["muted"]}">{label}</text>')
-        lx += 22 + 7.2 * len(label)
+        legend.append(f'<circle cx="{lx + 7}" cy="184" r="7" fill="{LANG_COLORS.get(lang, "#6e7681")}"/>'
+                      f'<text x="{lx + 20}" y="191" style="font:500 19px {SANS}" fill="{t["muted"]}">{label}</text>')
+        lx += 34 + 10.2 * len(label)
 
     main_lang, main_n = s["langs"][0] if s["langs"] else ("-", 0)
     stats = [("public repositories", s["repos"]),
@@ -100,15 +105,15 @@ def card(s: dict, t: dict) -> str:
              (f"of the code is {main_lang}", f"{100 * main_n / total:.0f}%")]
     tiles = []
     for i, (label, value) in enumerate(stats):
-        tx = 40 + i * 250
-        tiles.append(f'<text x="{tx}" y="82" style="font:700 34px {SANS}" fill="{t["ink"]}">{value}</text>'
-                     f'<text x="{tx}" y="106" style="font:500 13px {SANS}" fill="{t["muted"]}">{label}</text>')
+        tx = 40 + i * 330
+        tiles.append(f'<text x="{tx}" y="88" style="font:700 44px {SANS}" fill="{t["ink"]}">{value}</text>'
+                     f'<text x="{tx}" y="118" style="font:500 19px {SANS}" fill="{t["muted"]}">{label}</text>')
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img"
   aria-label="{s['repos']} public repositories, {s['ci_green']} of {s['ci_total']} repositories with passing CI. Languages: {', '.join(f'{lang} {100 * n / total:.0f}%' for lang, n in segs)}.">
 <defs><linearGradient id="acc" x1="0" x2="1"><stop offset="0" stop-color="{t['a1']}"/><stop offset="1" stop-color="{t['a2']}"/></linearGradient></defs>
 <rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="16" fill="{t['card']}" stroke="{t['edge']}"/>
 <rect x="40" y="28" width="56" height="4" rx="2" fill="url(#acc)"/>
-<text x="{w - 40}" y="36" text-anchor="end" style="font:500 12px {SANS}" fill="{t['muted']}">own repositories · refreshed daily</text>
+<text x="{w - 40}" y="40" text-anchor="end" style="font:500 16px {SANS}" fill="{t['muted']}">own repositories · refreshed daily</text>
 {''.join(tiles)}
 {''.join(bar)}
 {''.join(legend)}
