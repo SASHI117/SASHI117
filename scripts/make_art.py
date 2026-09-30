@@ -13,10 +13,10 @@ from pathlib import Path
 OUT = Path(__file__).resolve().parents[1] / "assets"
 
 THEMES = {
-    "dark": dict(
-        bg0="#0b1020", bg1="#1a1142", ink="#f8fafc", sub="#cbd5e1", muted="#94a3b8",
-        a1="#22d3ee", a2="#a78bfa", a3="#fbbf24", card="#111827", edge="#334155",
-        dot="#ffffff", dot_op=".05", pill="#1e293b",
+    "dark": dict(   # matte black
+        bg0="#0a0a0a", bg1="#141414", ink="#fafafa", sub="#d4d4d8", muted="#8a8a93",
+        a1="#22d3ee", a2="#a78bfa", a3="#fbbf24", card="#161616", edge="#2a2a2a",
+        dot="#ffffff", dot_op=".035", pill="#1b1b1b",
     ),
     "light": dict(
         bg0="#f8fafc", bg1="#ede9fe", ink="#0f172a", sub="#334155", muted="#64748b",
@@ -27,7 +27,7 @@ THEMES = {
 
 SANS = "'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif"
 MONO = "'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
-INDIC = "'Nirmala UI', 'Noto Sans Devanagari', 'Noto Sans Telugu', 'Kohinoor Devanagari', sans-serif"
+CJK = "'Yu Gothic UI', 'Microsoft YaHei', 'Hiragino Sans', 'PingFang SC', 'Noto Sans CJK JP', sans-serif"
 
 
 def defs(t, w, h):
@@ -66,10 +66,9 @@ def header(t):
             f'<rect class="bar" x="{x}" y="{255 - hgt / 2:.1f}" width="{bw}" height="{hgt:.1f}" rx="3" '
             f'fill="url(#acc)" style="animation-duration:{dur:.2f}s;animation-delay:{delay:.2f}s"/>'
         )
-    # The waveform "decodes" into words. Each row is one meaning written in
-    # Hindi, Telugu and English: farmer, then crop.
-    rows = [[("किसान", INDIC), ("రైతు", INDIC), ("farmer", SANS)],
-            [("फ़सल", INDIC), ("పంట", INDIC), ("crop", SANS)]]
+    # The waveform "decodes" into the same greeting in six languages.
+    rows = [[("Hello", SANS), ("Hola", SANS), ("Bonjour", SANS)],
+            [("Hallo", SANS), ("こんにちは", CJK), ("你好", CJK)]]
     pills, pw, k = [], 118, 0
     for r, row in enumerate(rows):
         for c, (word, font) in enumerate(row):
@@ -82,7 +81,7 @@ def header(t):
             )
             k += 1
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img"
-  aria-label="Sashi Vardhan Pragada, AI/ML engineer. An animated speech waveform turns into words in Hindi, Telugu and English.">
+  aria-label="Sashi Vardhan Pragada, AI/ML engineer. An animated speech waveform turns into the greeting hello in six languages.">
 <style>
   .bar {{ transform-box: fill-box; transform-origin: center; animation: talk 1.4s ease-in-out infinite alternate; }}
   @keyframes talk {{ from {{ transform: scaleY(.22); }} to {{ transform: scaleY(1); }} }}
@@ -177,7 +176,7 @@ LINES = [
     ("$ ", "cat focus.txt", "cmd"),
     ("", "speech for Indian languages · RAG & LLM apps · fast CPU inference", "out"),
     ("$ ", "cat habits.txt", "cmd"),
-    ("", "measure before claiming · ship tests with the code · write down what broke", "out"),
+    ("", "measure everything · ship tests with the code · optimise for latency", "out"),
 ]
 
 
@@ -200,7 +199,7 @@ def terminal(t):
         y += 28 if kind == "cmd" else 36
     cursor_y = y - 18
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img"
-  aria-label="Terminal: whoami, Sashi, AI/ML engineer at AUDICLABS in Hyderabad. Focus: speech for Indian languages, RAG and LLM apps, fast CPU inference. Habits: measure before claiming, ship tests with the code, write down what broke.">
+  aria-label="Terminal: whoami, Sashi, AI/ML engineer at AUDICLABS in Hyderabad. Focus: speech for Indian languages, RAG and LLM apps, fast CPU inference. Habits: measure everything, ship tests with the code, optimise for latency.">
 <style>
   .cursor {{ opacity: 0; animation: blink 1s steps(1) {tstart:.2f}s infinite; }}
   @keyframes blink {{ 0% {{ opacity: 1; }} 50% {{ opacity: 0; }} }}

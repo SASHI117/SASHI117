@@ -20,7 +20,7 @@ LANG_COLORS = {  # github/linguist colours
     "C++": "#f34b7d", "C": "#555555", "Java": "#b07219", "TSQL": "#e38c00", "PowerShell": "#012456",
 }
 THEMES = {
-    "dark": dict(bg="#0d1117", card="#161b22", edge="#30363d", ink="#e6edf3", muted="#8b949e", a1="#22d3ee", a2="#a78bfa"),
+    "dark": dict(bg="#0a0a0a", card="#111111", edge="#262626", ink="#fafafa", muted="#8a8a93", a1="#22d3ee", a2="#a78bfa"),
     "light": dict(bg="#ffffff", card="#f6f8fa", edge="#d0d7de", ink="#1f2328", muted="#656d76", a1="#0891b2", a2="#7c3aed"),
 }
 SANS = "'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif"
