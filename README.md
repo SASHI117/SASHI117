@@ -22,9 +22,9 @@ that is the useful part.
 
 | Repo | What it does | Worth a look |
 |---|---|---|
-| [stt-benchmark-backend](https://github.com/SASHI117/stt-benchmark-backend) · [frontend](https://github.com/SASHI117/stt-benchmark-frontend) | Sends one clip to 8 STT providers (11 models) concurrently and scores WER and latency | Found that the WER normalizer deleted Indic vowel signs, so a *wrong* Hindi transcript scored WER 0.0 |
-| [ai4bharat_stt](https://github.com/SASHI117/ai4bharat_stt) · [client](https://github.com/SASHI117/users_ai4bharat_stt) | Self-hosted speech-to-text for 22 Indian languages on AI4Bharat IndicConformer-600M, with FastAPI and Docker | Lazy model loading, thread-pooled inference, real-time factor reported per request |
-| [llama-dataset-frontend](https://github.com/SASHI117/llama-dataset-frontend) | Tool for agronomists to write multi-turn Q/A instruction data for LLM fine-tuning | Data tagged by crop and reasoning type, in `user`/`model` chat format |
+| [stt-benchmark-backend](https://github.com/SASHI117/stt-benchmark-backend) · [frontend](https://github.com/SASHI117/stt-benchmark-frontend) | Sends one clip to 8 STT providers (11 models) concurrently and scores WER and latency | Found two Indic WER bugs: vowel signs were deleted (a *wrong* Hindi transcript scored 0.0), and nukta/chandrabindu spellings were scored as errors |
+| [ai4bharat_stt](https://github.com/SASHI117/ai4bharat_stt) · [client](https://github.com/SASHI117/users_ai4bharat_stt) | Self-hosted speech-to-text for 22 Indian languages on AI4Bharat IndicConformer-600M, with FastAPI and Docker | Verified end to end with the real model: Telugu and Hindi transcribed exactly, RTF 0.5–0.9 on a laptop CPU |
+| [llama-dataset-frontend](https://github.com/SASHI117/llama-dataset-frontend) | Tool for agricultural field experts to write multi-turn Q/A instruction data for LLM fine-tuning | Data tagged by crop and reasoning type, in `user`/`model` chat format |
 | [Debt-Stress-Prediction-Using-FinBERT](https://github.com/SASHI117/Debt-Stress-Prediction-Using-FinBERT) | FinBERT fine-tuned to grade financial stress in banking messages | Reported 100% turned out to be train/test sentence overlap. On held-out wording it's 54%, +13 points over TF-IDF |
 
 #### Applied ML
@@ -58,16 +58,17 @@ These aren't open-sourced, so there's nothing to link. This is what they covered
 <summary><b>Skills</b></summary>
 
 - **Languages:** Python, C++, C, Java, JavaScript, HTML, CSS
-- **ML / DL / NLP:** PyTorch, Transformers, SFT, PEFT / LoRA, FinBERT, neural networks, regression analysis, Random Forest, XGBoost, model optimization and quantization, Generative AI, multimodal AI, document intelligence, information extraction
+- **ML / DL / NLP:** classical ML models, PyTorch, Transformers, SFT, PEFT / LoRA, FinBERT, neural networks, regression analysis, Random Forest, XGBoost, model optimization and quantization, Generative AI, multimodal AI, document intelligence, information extraction
 - **Generative AI & RAG:** LLMs and SLMs, LangChain, LangGraph, RAG pipelines, knowledge-base construction, embeddings, vector, hybrid and keyword search, reranking, RAG tuning and retrieval optimization, prompt engineering, AI agents and agentic AI
 - **Speech & multimodal:** STT → LLM → TTS pipelines, real-time voice AI, speech technology and separation, ASR evaluation (WER), audio, image, video and text processing, multimodal data processing
 - **Serving & apps:** FastAPI, REST APIs, real-time AI systems, AI web apps and automation, Streamlit, Gradio, React, dashboards, web crawling and scraping, content extraction, document parsing
-- **Tools & infra:** Git, Hugging Face, Unsloth, Pipecat, Sherpa-ONNX, ONNX Runtime, Docker, CI/CD (GitHub Actions), Azure, GCP, AWS, Vercel, Render, Railway, Firebase, Microsoft Excel
+- **Tools & infra:** Git, GitHub, Hugging Face, Unsloth, Pipecat, Sherpa-ONNX, ONNX Runtime, Docker, CI/CD (GitHub Actions), Azure, GCP, AWS, Vercel, Render, Railway, Firebase, Microsoft Excel
 - **Practice:** dataset building and curation, data pipelines, model evaluation and benchmarking, error analysis, latency optimization, data structures and algorithms, problem solving
 
 </details>
 
-Earlier internships: Airports Authority of India and BSNL, on network
-monitoring and reliability in real-time communication systems.
+Earlier internships: **Airports Authority of India** (telecom software infrastructure,
+network monitoring and fault-log analysis) and **BSNL** (real-time surveillance,
+radar and network-monitoring systems, with a focus on uptime and fault detection).
 
 📫 mesashivardhan4080@gmail.com
