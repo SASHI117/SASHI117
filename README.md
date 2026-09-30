@@ -15,13 +15,13 @@ budget. Most of my work sits where speech,
 language models and plain software engineering meet. That's where the
 hardest problems live, and the most interesting ones.
 
-I'm an **AI & ML Engineer at AUDICLABS** in Hyderabad, working on real-time
-inference on CPUs. Before that I was one of the early engineers at
-**FarmVaidya.ai**, building conversational AI for farmers, from speech
-datasets and ASR training to fine-tuned open-source LLMs and the benchmarks we
-used to decide what to ship.
+Most recently I built real-time AI inference for CPUs at AUDICLABS:
+quantization, runtime and memory optimization, and high-concurrency streaming.
+Before that I was part of the founding engineering team at FarmVaidya.ai,
+building conversational AI for farmers, from speech datasets and ASR training
+to fine-tuned open-source LLMs and the benchmarks we used to decide what to ship.
 
-<img alt="Terminal: whoami prints Sashi, AI/ML engineer at AUDICLABS, Hyderabad. focus.txt: speech for Indian languages, RAG and LLM apps, fast CPU inference. habits.txt: measure everything, ship tests with the code, optimise for latency." src="assets/terminal-dark.svg" width="100%">
+<img alt="At a glance. Role: AI/ML Engineer. Focus: speech AI, LLMs and RAG, real-time inference. Builds: voice agents, speech-to-text systems, RAG platforms, fine-tuned LLMs. Stack: Python, PyTorch, Transformers, FastAPI, ONNX Runtime, Docker. Based in Hyderabad, India. Speaks English, Telugu, Hindi and Spanish." src="assets/glance-dark.svg" width="100%">
 
 ## What I work on
 
@@ -55,7 +55,7 @@ eight seconds isn't a voice assistant.
 
 | When | Where | What |
 |---|---|---|
-| **Jun 2026 – now** | **AUDICLABS** · AI & ML Engineer | Real-time AI inference on CPUs: quantization, runtime and memory optimization, high-concurrency streaming, and portable standalone runtimes for local and edge deployment |
+| Jun – Sep 2026 | **AUDICLABS** · AI & ML Engineer | Built real-time AI inference on CPUs: quantization, runtime and memory optimization, high-concurrency streaming, and portable standalone runtimes for local and edge deployment |
 | Dec 2025 – Jun 2026 | **FarmVaidya.ai** · AI & ML Intern | Multilingual conversational AI for agriculture: fine-tuned open LLMs, speech data pipelines, ASR training, data curation and benchmarking with field experts |
 | May – Jun 2025 | **Airports Authority of India** · Intern | Telecom software infrastructure, network monitoring, fault-log analysis |
 | Sep – Oct 2024 | **BSNL** · Intern | Real-time surveillance, radar and network-monitoring systems; uptime and fault detection |
