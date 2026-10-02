@@ -9,8 +9,7 @@
 ## Hi, I'm Sashi 👋
 
 I build machine-learning systems that have to work outside the notebook:
-speech recorded in noisy places, questions that switch between Telugu, Hindi
-and English, and models that have to answer on a CPU because there's no GPU
+speech recorded in noisy places, questions that switch between languages, and models that have to answer on a CPU because there's no GPU
 budget. Most of my work sits where speech,
 language models and plain software engineering meet. That's where the
 hardest problems live, and the most interesting ones.
