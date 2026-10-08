@@ -14,7 +14,7 @@ budget. Most of my work sits where speech,
 language models and plain software engineering meet. That's where the
 hardest problems live, and the most interesting ones.
 
-Most recently I built real-time AI inference for CPUs at AUDICLABS:
+Most recently I built real-time AI inference for CPUs:
 quantization, runtime and memory optimization, and high-concurrency streaming.
 Before that I was part of the founding engineering team at FarmVaidya.ai,
 building conversational AI for farmers, from speech datasets and ASR training
@@ -54,7 +54,7 @@ eight seconds isn't a voice assistant.
 
 | When | Where | What |
 |---|---|---|
-| Jun – Sep 2026 | **AUDICLABS** · AI & ML Engineer | Built real-time AI inference on CPUs: quantization, runtime and memory optimization, high-concurrency streaming, and portable standalone runtimes for local and edge deployment |
+| Jun – Sep 2026 | **AUDICLABS** · AI & ML Engineer (Probation) | Built real-time AI inference on CPUs: quantization, runtime and memory optimization, high-concurrency streaming, and portable standalone runtimes for local and edge deployment |
 | Dec 2025 – Jun 2026 | **FarmVaidya.ai** · AI & ML Intern | Multilingual conversational AI for agriculture: fine-tuned open LLMs, speech data pipelines, ASR training, data curation and benchmarking with field experts |
 | May – Jun 2025 | **Airports Authority of India** · Intern | Telecom software infrastructure, network monitoring, fault-log analysis |
 | Sep – Oct 2024 | **BSNL** · Intern | Real-time surveillance, radar and network-monitoring systems; uptime and fault detection |
